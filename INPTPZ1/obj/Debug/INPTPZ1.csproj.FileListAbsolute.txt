@@ -1,6 +1,0 @@
-D:\Programming\NNPTP\NNPTP20-1\INPTPZ1\bin\Debug\INPTPZ1.exe.config
-D:\Programming\NNPTP\NNPTP20-1\INPTPZ1\obj\Debug\INPTPZ1.csprojResolveAssemblyReference.cache
-D:\Programming\NNPTP\NNPTP20-1\INPTPZ1\bin\Debug\INPTPZ1.exe
-D:\Programming\NNPTP\NNPTP20-1\INPTPZ1\bin\Debug\INPTPZ1.pdb
-D:\Programming\NNPTP\NNPTP20-1\INPTPZ1\obj\Debug\INPTPZ1.exe
-D:\Programming\NNPTP\NNPTP20-1\INPTPZ1\obj\Debug\INPTPZ1.pdb
