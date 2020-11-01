@@ -16,7 +16,7 @@ namespace INPTPZ1
             RealPart = 0,
             ImaginaryPart = 0
         };
-        public bool isComplexZero()
+        public bool IsComplexZero()
         {
             ComplexNumber a = this;
             if (a.RealPart == 0 && a.ImaginaryPart == 0)
@@ -34,39 +34,39 @@ namespace INPTPZ1
             }
             return base.Equals(obj);
         }
-        public ComplexNumber Multiply(ComplexNumber b)
+        public ComplexNumber Multiply(ComplexNumber complexNumber2)
         {
-            ComplexNumber a = this;
+            ComplexNumber complexNumber1 = this;
             return new ComplexNumber()
             {
-                RealPart = a.RealPart * b.RealPart - a.ImaginaryPart * b.ImaginaryPart,
-                ImaginaryPart = a.RealPart * b.ImaginaryPart + a.ImaginaryPart * b.RealPart
+                RealPart = complexNumber1.RealPart * complexNumber2.RealPart - complexNumber1.ImaginaryPart * complexNumber2.ImaginaryPart,
+                ImaginaryPart = complexNumber1.RealPart * complexNumber2.ImaginaryPart + complexNumber1.ImaginaryPart * complexNumber2.RealPart
             };
         }
 
-        public ComplexNumber Add(ComplexNumber b)
+        public ComplexNumber Add(ComplexNumber complexNumber2)
         {
-            ComplexNumber a = this;
+            ComplexNumber complexNumber1 = this;
             return new ComplexNumber()
             {
-                RealPart = a.RealPart + b.RealPart,
-                ImaginaryPart = a.ImaginaryPart + b.ImaginaryPart
+                RealPart = complexNumber1.RealPart + complexNumber2.RealPart,
+                ImaginaryPart = complexNumber1.ImaginaryPart + complexNumber2.ImaginaryPart
             };
         }
-        public ComplexNumber Subtract(ComplexNumber b)
+        public ComplexNumber Subtract(ComplexNumber complexNumber2)
         {
-            ComplexNumber a = this;
+            ComplexNumber complexNumber1 = this;
             return new ComplexNumber()
             {
-                RealPart = a.RealPart - b.RealPart,
-                ImaginaryPart = a.ImaginaryPart - b.ImaginaryPart
+                RealPart = complexNumber1.RealPart - complexNumber2.RealPart,
+                ImaginaryPart = complexNumber1.ImaginaryPart - complexNumber2.ImaginaryPart
             };
         }
 
-        internal ComplexNumber Divide(ComplexNumber b)
+        internal ComplexNumber Divide(ComplexNumber complexNumber)
         {
-            ComplexNumber numerator = this.Multiply(new ComplexNumber() { RealPart = b.RealPart, ImaginaryPart = -b.ImaginaryPart });
-            double denominator = b.RealPart * b.RealPart + b.ImaginaryPart * b.ImaginaryPart;
+            ComplexNumber numerator = this.Multiply(new ComplexNumber() { RealPart = complexNumber.RealPart, ImaginaryPart = -complexNumber.ImaginaryPart });
+            double denominator = complexNumber.RealPart * complexNumber.RealPart + complexNumber.ImaginaryPart * complexNumber.ImaginaryPart;
 
             return new ComplexNumber()
             {

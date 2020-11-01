@@ -104,7 +104,7 @@ namespace INPTPZ1
                             RealPart = xmin + yCoordinate * xstep,
                             ImaginaryPart = ymin + xCoordinate * ystep
                         };
-                        if (chosenComplex.isComplexZero())
+                        if (chosenComplex.IsComplexZero())
                         {
                             chosenComplex.RealPart = 0.0001;
                             chosenComplex.ImaginaryPart = 0.0001f;
@@ -131,12 +131,12 @@ namespace INPTPZ1
         private static void FindSolutionByNewton()
         {
             iteration = 0;
-            for (int q = 0; q < 30; q++)
+            for (int i = 0; i < 30; i++)
             {
                 var diff = polynome.Evaluate(chosenComplex).Divide(derivationOfPolynome.Evaluate(chosenComplex));
                 chosenComplex = chosenComplex.Subtract(diff);
                 if (Math.Pow(diff.RealPart, 2) + Math.Pow(diff.ImaginaryPart, 2) >= 0.5)                
-                    q--;                
+                    i--;                
                 iteration++;
             }
         }
@@ -145,12 +145,12 @@ namespace INPTPZ1
         {
             idOfRoot = 0;
             bool isRootIdKnown = false;
-            for (int w = 0; w < roots.Count; w++)
+            for (int i = 0; i < roots.Count; i++)
             {
-                if (Math.Pow(chosenComplex.RealPart - roots[w].RealPart, 2) + Math.Pow(chosenComplex.ImaginaryPart - roots[w].ImaginaryPart, 2) <= 0.01)
+                if (Math.Pow(chosenComplex.RealPart - roots[i].RealPart, 2) + Math.Pow(chosenComplex.ImaginaryPart - roots[i].ImaginaryPart, 2) <= 0.01)
                 {
                     isRootIdKnown = true;
-                    idOfRoot = w;
+                    idOfRoot = i;
                 }
             }
             if (!isRootIdKnown)

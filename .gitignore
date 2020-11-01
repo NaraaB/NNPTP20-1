@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/INPTPZ1/obj/Debug
+/INPTPZ1/bin/Debug
+/INPTPZ1Tests/bin/Debug
