@@ -51,47 +51,7 @@ namespace INPTPZ1
 
         static void Main(string[] args)
         {
-            double[] doubleargs = new double[4];
-            if (args.Length == 5)
-            {
-                if (!Int32.TryParse(args[0], out canvasSide))
-                {
-                    Console.WriteLine("Error occured while parsing args[0] to canvasSide");
-                    return;
-                }
-                for (int i = 0; i < doubleargs.Length; i++)
-                {
-                    if (!Double.TryParse(args[i + 1], out doubleargs[i]))
-                    {
-                        Console.WriteLine("Error occured while parsing args[" + i + 1 + "] to doubleargs[" + i + "]");
-                        return;
-                    }
-                }
-            }
-            else
-            {
-                Console.WriteLine("Please insert value for square shaped canvas side");
-                Console.WriteLine("Length of canvas side =");
-                if (!Int32.TryParse(Console.ReadLine(), out canvasSide))
-                {
-                    Console.WriteLine("Error occured while parsing input to canvasSide value");
-                    return;
-                }
-                Console.WriteLine("Please insert the Minimum and the Maximum values of x and y");
-                for (int i = 0; i < doubleargs.Length; i++)
-                {
-                    string str = (i == 0 || i == 1) ? "x" : "y";
-                    str += (i == 0 || i == 2) ? "min= " : "max= ";
-                    Console.WriteLine(str);
-                    if (!Double.TryParse(Console.ReadLine(), out doubleargs[i]))
-                    {
-                        Console.WriteLine("Error occured while parsing input to doubleargs[" + i + "]");
-                        return;
-                    }
-                }
-            }
-            xmin = doubleargs[0]; xmax = doubleargs[1];
-            ymin = doubleargs[2]; ymax = doubleargs[3];
+            ManageInput(args);            
             if (canvasSide > 0)
             {
                 Initialize();
@@ -127,6 +87,51 @@ namespace INPTPZ1
             Console.ReadKey();
             return;
         }        
+
+        private static void ManageInput(string[] arguments)
+        {
+            double[] doubleargs = new double[4];
+            if (arguments.Length == 5)
+            {
+                if (!Int32.TryParse(arguments[0], out canvasSide))
+                {
+                    Console.WriteLine("Error occured while parsing args[0] to canvasSide");
+                    return;
+                }
+                for (int i = 0; i < doubleargs.Length; i++)
+                {
+                    if (!Double.TryParse(arguments[i + 1], out doubleargs[i]))
+                    {
+                        Console.WriteLine("Error occured while parsing args[" + i + 1 + "] to doubleargs[" + i + "]");
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Please insert value for square shaped canvas side");
+                Console.WriteLine("Length of canvas side =");
+                if (!Int32.TryParse(Console.ReadLine(), out canvasSide))
+                {
+                    Console.WriteLine("Error occured while parsing input to canvasSide value");
+                    return;
+                }
+                Console.WriteLine("Please insert the Minimum and the Maximum values of x and y");
+                for (int i = 0; i < doubleargs.Length; i++)
+                {
+                    string str = (i == 0 || i == 1) ? "x" : "y";
+                    str += (i == 0 || i == 2) ? "min= " : "max= ";
+                    Console.WriteLine(str);
+                    if (!Double.TryParse(Console.ReadLine(), out doubleargs[i]))
+                    {
+                        Console.WriteLine("Error occured while parsing input to doubleargs[" + i + "]");
+                        return;
+                    }
+                }
+            }
+            xmin = doubleargs[0]; xmax = doubleargs[1];
+            ymin = doubleargs[2]; ymax = doubleargs[3];
+        }
 
         private static void FindSolutionByNewton()
         {
